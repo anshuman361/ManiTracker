@@ -19,10 +19,20 @@ mongoose
     console.error("MongoDB connection error:", err);
   });
 
-const corsOptions = {
-  origin: ["https://manitracker.netlify.app/"],
-};
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "https://manitracker.netlify.app",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
+app.options("*", cors());
+
+// const corsOptions = {
+//   origin: ["https://manitracker.netlify.app/"],
+// };
+// app.use(cors(corsOptions));
 
 app.use(express.json());
 
