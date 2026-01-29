@@ -9,7 +9,9 @@ const transactionRouter = require("./routes/transactionRouter");
 const app = express();
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/expenseTracker")
+  .connect(
+    "mongodb+srv://pandeyanshuman361_db_user:NNcvKumDfzHwVqMH@manitracker.akewotg.mongodb.net/?appName=ManiTracker",
+  )
   .then(() => {
     console.log("MongoDB connected");
   })
